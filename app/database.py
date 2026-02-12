@@ -16,7 +16,7 @@ def create_tables():
             deadline TEXT NOT NULL,
             estimated_duration INTEGER NOT NULL,
             priority INTEGER NOT NULL,
-            energry_required TEXT NOT NULL,
+            energy_required TEXT NOT NULL,
             status TEXT NOT NULL
         )
     """)
