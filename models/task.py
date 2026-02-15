@@ -2,8 +2,16 @@ from datetime import datetime
 
 class Task:
 
-    def __init__(self, id, title, priority, energy_required, deadline, estimated_duration, status):
-        id = None # ID will be set by the database
+    def __init__(self, 
+                 title, 
+                 priority, 
+                 energy_required, 
+                 deadline, 
+                 estimated_duration, 
+                 status = 'PENDING',
+                 id = None):
+        
+        self.id = id
         self.title = title
         self.priority = priority
         self.energy_required = energy_required
@@ -21,8 +29,8 @@ class Task:
             raise ValueError("Title cannot be empty")
         if self.priority not in ['LOW', 'MEDIUM', 'HIGH']:
             raise ValueError("Priority must be 'LOW', 'MEDIUM', or 'HIGH'")
-        if self.status not in ['PENDING', 'IN_PROGRESS', 'COMPLETED']:
-            raise ValueError("Status must be 'PENDING', 'IN_PROGRESS', or 'COMPLETED'")
+        if self.status not in ['PENDING', 'COMPLETED', 'SKIPPED']:
+            raise ValueError("Status must be 'PENDING', 'COMPLETED', or 'SKIPPED'")
         if self.energy_required not in ['LOW', 'MEDIUM', 'HIGH']:
             raise ValueError("Energy required must be LOW, MEDIUM, or HIGH")
         if self.estimated_duration <= 0:
