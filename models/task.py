@@ -16,7 +16,6 @@ class Task:
         self.title = title
         self.priority = priority
         self.energy_required = energy_required
-        self.deadline = deadline
         self.estimated_duration = estimated_duration
         self.status = status
         if isinstance(deadline, str):
