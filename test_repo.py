@@ -17,9 +17,9 @@ tasks = repo.get_all_tasks()
 
 for t in tasks:
     print(t.id, 
-          t.title, 
-          t.priority, 
-          t.energy_required, 
-          t.deadline, 
+          t.title,
+          t.priority,
+          t.energy_required,
+          t.deadline,
           t.status)
 
