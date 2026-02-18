@@ -12,3 +12,14 @@ task = Task(
     estimated_duration=90
 )
 repo.create_task(task)
+
+tasks = repo.get_all_tasks()
+
+for t in tasks:
+    print(t.id, 
+          t.title, 
+          t.priority, 
+          t.energy_required, 
+          t.deadline, 
+          t.status)
+
