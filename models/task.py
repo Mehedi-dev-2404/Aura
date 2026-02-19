@@ -2,28 +2,34 @@ from datetime import datetime
 
 class Task:
 
-
     def __init__(self, 
                  title, 
                  priority, 
                  energy_required, 
                  deadline, 
                  estimated_duration, 
-                 status = 'PENDING',
-                 id = None):
+                 status='PENDING',
+                 id=None):
         
         self.id = id
         self.title = title
         self.priority = priority
         self.energy_required = energy_required
-        self.estimated_duration = estimated_duration
         self.status = status
+
+        # --- Handle deadline conversion ---
         if isinstance(deadline, str):
             self.deadline = datetime.strptime(deadline, "%Y-%m-%d %H:%M")
         else:
             self.deadline = deadline
-        self.validate()
 
+        # --- Handle estimated_duration conversion ---
+        if isinstance(estimated_duration, str):
+            self.estimated_duration = int(estimated_duration)
+        else:
+            self.estimated_duration = estimated_duration
+
+        self.validate()
     def validate(self):
         if not self.title:
             raise ValueError("Title cannot be empty")
