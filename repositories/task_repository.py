@@ -3,7 +3,7 @@ from models.task import Task
 
 class TaskRepository:
     
-    def __init__(self, db_path="aura.db"):
+    def (self, db_path="aura.db"):
         self.db_path = db_path
 
     def _get_connection(self):
