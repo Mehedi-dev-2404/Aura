@@ -20,7 +20,6 @@ class TaskRepository:
             status=row[6]
         )
     
-    
         
     def create_task(self, task):
         with self._get_connection() as conn:
