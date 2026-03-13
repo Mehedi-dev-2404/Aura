@@ -75,7 +75,9 @@ class TaskRepository:
         if row is None:
             return None
         
-        return self._row_to_task(row
+        return self._row_to_task(row)
+
+        
                                  
     
     def delete_task(self, task_id):
