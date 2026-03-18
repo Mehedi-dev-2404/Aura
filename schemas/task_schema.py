@@ -7,3 +7,5 @@ class TaskCreate(BaseModel):
     energy_required: str
     deadline: datetime
     estimated_duration: int
+
+    
