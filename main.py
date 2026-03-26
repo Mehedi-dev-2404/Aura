@@ -52,3 +52,13 @@ def update_task(task_id: int, task_data: TaskCreate):
 
     repo.update_task(task)
     return task
+
+@app.delete("/tasks/{task_id}")
+def delete_task(task_id: int):
+    task = repo.get_task_by_id(task_id)
+
+    if task is None:
+        raise HTTPException(status_code=404, detail="Task not found")
+    
+    repo.delete_task(task_id)
+    return {"message": "Task deleted successfully"}
