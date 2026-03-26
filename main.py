@@ -36,3 +36,19 @@ def create_task(task_data: TaskCreate):
 
     repo.create_task(task)
     return task
+
+@app.put("/tasks/{task_id}", response_model=TaskResponse)
+def update_task(task_id: int, task_data: TaskCreate):
+    task = repo.get_task_by_id(task_id)
+
+    if task is None:
+        raise HTTPException(status_code=404, detail="Task not found")
+    
+    task.title = task_data.title
+    task.priority = task_data.priority
+    task.energy_required = task_data.energy_required
+    task.deadline = task_data.deadline
+    task.estimated_duration = task_data.estimated_duration
+
+    repo.update_task(task)
+    return task
