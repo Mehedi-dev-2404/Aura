@@ -8,4 +8,15 @@ class TaskCreate(BaseModel):
     deadline: datetime
     estimated_duration: int
 
-    
+
+class TaskResponse(BaseModel):
+    id: int
+    title: str
+    priority: str
+    energy_required: str
+    deadline: datetime
+    estimated_duration: int
+    status: str
+
+    class Config:
+        from_attributes = True
